@@ -8,7 +8,13 @@ Build script for the `typesentry` module.
 
 """
 from setuptools import find_packages, setup
-from typesentry.__version__ import version
+
+
+
+with open("typesentry/__version__.py") as fp:
+    version = {}
+    exec(fp.read(), version)
+    version = version['version']
 
 packages = find_packages(exclude=["tests*", "docs*"])
 
